@@ -65,7 +65,7 @@
       "metadata": {
         "description": "The name of the DC01 VM created"
       },
-      "defaultValue": "AteaDC01"
+      "defaultValue": "AteaAzureDC01"
     },
     "DC01VMSize": {
       "type": "string",
@@ -128,12 +128,12 @@
   "variables": {
     "DC01ImagePublisher": "MicrosoftWindowsServer",
     "DC01ImageOffer": "WindowsServer",
-    "DC01OSDiskName": "DC01OSDisk",
+    "DC01OSDiskName": "[concat(parameters('DC01Name'), 'OSDisk')]",
     "DC01VmSize": "Standard_D1",
     "DC01VnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
     "DC01SubnetRef": "[concat(variables('DC01VnetID'), '/subnets/', parameters('virtualNetworkSubnetName'))]",
     "DC01StorageAccountContainerName": "vhds",
-    "DC01DataDisk": "DC01DataDisk",
+    "DC01DataDisk": "[concat(parameters('DC01Name'), 'DataDisk')]",
     "DC01DataDiskSize": 1000,
     "DC01NicName": "[concat(parameters('DC01Name'), 'NetworkInterface')]",
     "adModulesURL": "[concat(parameters('AssetLocation'),'/CreateADPDC.ps1.zip')]",
