@@ -1,0 +1,24 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+     "StorageName": {
+            "value": "ateatrdazuredemo01"
+        },
+        "virtualNetworkName": {
+            "value": "VNET1"
+        },
+        "virtualNetworkAddressRange": {
+            "value": "10.10.0.0/16"
+        },
+        "virtualNetworkSubnet": {
+            "value": "10.10.0.0/24"
+        },
+        "DomainName": {
+            "value": "ateaazuredemo"
+        },
+        "AdminPassword": {
+            "value": "AteaCloud1!"
+        }
+  }
+}
