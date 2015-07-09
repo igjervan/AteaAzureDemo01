@@ -65,7 +65,7 @@
       "metadata": {
         "description": "The name of the DC01 VM created"
       },
-      "defaultValue": "AteaAzureDC01"
+      "defaultValue": "AteaDC01"
     },
     "DC01VMSize": {
       "type": "string",
@@ -136,8 +136,8 @@
     "DC01DataDisk": "[concat(parameters('DC01Name'), 'DataDisk')]",
     "DC01DataDiskSize": 1000,
     "DC01NicName": "[concat(parameters('DC01Name'), 'NetworkInterface')]",
-    "adModulesURL": "[concat(parameters('AssetLocation'),'/CreateADPDC.ps1.zip')]",
-    "adConfigurationFunction": "CreateADPDC.ps1\\CreateADPDC"
+    "adModulesURL": "[concat(parameters('AssetLocation'),'/CreateAD.ps1.zip')]",
+    "adConfigurationFunction": "CreateADForest.ps1\\CreateADForest"
 
   },
   "resources": [
@@ -291,7 +291,7 @@
           "properties": {
             "publisher": "Microsoft.Powershell",
             "type": "DSC",
-            "typeHandlerVersion": "1.7",
+            "typeHandlerVersion": "2.0",
             "settings": {
               "ModulesUrl": "[variables('adModulesURL')]",
               "ConfigurationFunction": "[variables('adConfigurationFunction')]",
