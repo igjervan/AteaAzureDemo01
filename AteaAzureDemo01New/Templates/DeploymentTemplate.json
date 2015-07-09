@@ -183,7 +183,7 @@
 			"metadata": {
 				"description": "The location of resources such as templates and DSC modules that the script is dependent"
 			},
-			"defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/active-directory-new-domain"
+			"defaultValue": "https://github.com/igjervan/AteaAzureDemo01/tree/master/AteaAzureDemo01New/Scripts"
 		}
 	},
 	"variables": {
@@ -370,7 +370,7 @@
 					"osDisk": {
 						"name": "osdisk",
 						"vhd": {
-							"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/','osdisk.vhd')]"
+							"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/',parameters('adVMName'),'-osdisk.vhd')]"
 						},
 						"caching": "ReadWrite",
 						"createOption": "FromImage"
@@ -378,9 +378,9 @@
 					"dataDisks": [
 						{
 							"vhd": {
-								"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/', variables('adDataDisk'),'-1.vhd')]"
+								"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/',parameters('adVMName'),'-',variables('adDataDisk'),'-1.vhd')]"
 							},
-							"name": "[concat(parameters('adVMName'),'-data-disk1')]",
+							"name": "[concat(parameters('adVMName'),'-',variables('adDataDisk'),'-1')]",
 							"caching": "None",
 							"createOption": "empty",
 							"diskSizeGB": "[variables('adDataDiskSize')]",
